@@ -1,70 +1,36 @@
-import React, {Component} from 'react';
-import {Button, Image, ScrollView, TextInput} from 'react-native';
-import Welcome from './components/Welcome';
+import React from 'react';
+import {Text, View, StyleSheet} from 'react-native';
+import TextInput from './components/atoms/TextInput';
+import Button from './components/atoms/Button';
+import Gap from './components/atoms/Gap';
 
-class App extends Component {
-  state = {
-    show: true,
-  };
-  render() {
-    return (
-      <ScrollView showsVerticalScrollIndicator={false}>
-        {this.state.show && <Welcome text="Welcome" />}
-        <Button
-          title="Toggle"
-          onPress={() => this.setState({show: !this.state.show})}
-        />
-        <Image source={require('./assets/logo-unklab.png')} />
-        <TextInput
-          placeholder="Username"
-          style={{
-            borderWidth: 1,
-            marginHorizontal: 5,
-            marginVertical: 10,
-            paddingVertical: 12,
-            paddingLeft: 20,
-            borderRadius: 8,
-          }}
-        />
-        <TextInput
-          placeholder="Username"
-          style={{borderWidth: 1, marginHorizontal: 5, marginVertical: 10}}
-        />
-        <TextInput
-          placeholder="Username"
-          style={{borderWidth: 1, marginHorizontal: 5, marginVertical: 10}}
-        />
-        <TextInput
-          placeholder="Username"
-          style={{borderWidth: 1, marginHorizontal: 5, marginVertical: 10}}
-        />
-        <TextInput
-          placeholder="Username"
-          style={{borderWidth: 1, marginHorizontal: 5, marginVertical: 10}}
-        />
-        <TextInput
-          placeholder="Username"
-          style={{borderWidth: 1, marginHorizontal: 5, marginVertical: 10}}
-        />
-        <TextInput
-          placeholder="Username"
-          style={{borderWidth: 1, marginHorizontal: 5, marginVertical: 10}}
-        />
-        <TextInput
-          placeholder="Username"
-          style={{borderWidth: 1, marginHorizontal: 5, marginVertical: 10}}
-        />
-        <TextInput
-          placeholder="Username"
-          style={{borderWidth: 1, marginHorizontal: 5, marginVertical: 10}}
-        />
-        <TextInput
-          placeholder="Username"
-          style={{borderWidth: 1, marginHorizontal: 5, marginVertical: 10}}
-        />
-      </ScrollView>
-    );
-  }
-}
+const App = () => {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>Welcome</Text>
+      <Gap height={40} />
+      <TextInput placeholder="Masukan username" label="Username" />
+      <Gap height={24} />
+      <TextInput placeholder="Masukan password" label="Password" />
+      <Gap height={48} />
+      <Button label="Register" />
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    marginHorizontal: 24,
+    marginVertical: 24,
+  },
+  gap: {
+    marginTop: 20,
+  },
+  title: {
+    color: '#ffc93c',
+    fontSize: 36,
+    fontWeight: '700',
+  },
+});
 
 export default App;
